@@ -1,4 +1,4 @@
-# AWS SSH Profiles
+# AWS SSH Profile Generator
 
 This is a utility which can generate an SSH config file as well as portably KiTTY profiles from AWS instance definitions. This provides an automated way for you to build connection profiles for all your AWS machines easily. No more looking up machines in the AWS console!
 
