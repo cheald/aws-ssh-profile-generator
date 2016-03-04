@@ -1,6 +1,6 @@
 require_relative "./instance_decorator"
 
-module AWSProfileGenerator
+module AwsSshProfileGenerator
   class Generator
     attr_reader :config, :images
     def initialize(config)

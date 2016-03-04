@@ -1,4 +1,4 @@
-module AWSProfileGenerator
+module AwsSshProfileGenerator
   class InstanceDecorator
     def initialize(generator, instance)
       @i = instance

@@ -1,4 +1,4 @@
-module AWSProfileGenerator
+module AwsSshProfileGenerator
   module Renderers
     class Base
       def initialize(gen, config)

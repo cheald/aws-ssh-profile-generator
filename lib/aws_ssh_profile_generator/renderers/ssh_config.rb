@@ -1,4 +1,4 @@
-module AWSProfileGenerator
+module AwsSshProfileGenerator
   module Renderers
     require_relative "./base"
 
