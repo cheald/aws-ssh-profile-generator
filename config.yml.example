@@ -1,28 +1,45 @@
+# List of AWS regions to connect to
 regions: ['us-east-1']
+
+# Filters to limit results by, as documented in http://docs.aws.amazon.com/sdkforruby/api/Aws/EC2/Client.html#describe_instances-instance_method
 query_filters:
   - name: key-name
     values: ["Your SSH Key Name", "Your Other SSH Key Name"]
   - name: instance-state-name
     values: ["running", "pending"]
+
+# Mappings of partial AMI names to login names.
 users:
   - match: amzn-ami
     user: ec2-user
   - match: ubuntu
     user: ubuntu
+
 renderers:
+  # The Linux/OS X renderer for OpenSSH.
   SSHConfig:
+    # Set to false to turn off this renderer
     enable: true
+    # The output file to write to. If you set this to ~/.ssh/config then note that it overwrites, rather than appending.
     output: ./ssh_config
+    # The output template to use
     template: templates/ssh_config.erb
+    # A mapping of AWS key names to your local identity filenames. Make sure these files exist!
     keys:
       Your SSH Key Name: ~/.ssh/path_to_key.pem
       Your Other SSH Key Name: ~/.ssh/path_to_other_key.pem
+
+  # The KiTTY renderer for KiTTY Portable files
   KiTTY:
+    # Set to false to turn off this renderer
     enable: true
+    # Output base directory
     directory: kitty
+    # The session template to use
     template: templates/kitty.erb
-    # structure takes a slash delimited set of tag names to resolve into folders. ie, "project/stages/roles" if you want to separate your profiles into directories
-    structure: "project"
+    # Takes a slash-delimited set of tag names to resolve into folders. ie, "project/stages/roles" if you want to separate your profiles into directories
+    structure: "root/$project"
+    # Mappings of your AWS key names to local Putty keys
     keys:
       Your SSH Key Name: "C:\\escaped\\path\\to\\key.ppk"
       Your Other SSH Key Name: "C:\\escaped\\path\\to\\other key.ppk"
