@@ -1,6 +1,5 @@
 require 'bundler/setup'
 require 'aws-sdk'
-require 'awesome_print'
 require 'set'
 require 'yaml'
 require 'erb'

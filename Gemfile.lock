@@ -1,7 +1,6 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    awesome_print (1.6.1)
     aws-sdk (2.2.23)
       aws-sdk-resources (= 2.2.23)
     aws-sdk-core (2.2.23)
@@ -15,7 +14,6 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
-  awesome_print
   aws-sdk
   rake
 
