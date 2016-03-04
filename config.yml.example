@@ -1,0 +1,28 @@
+regions: ['us-east-1']
+query_filters:
+  - name: key-name
+    values: ["Your SSH Key Name", "Your Other SSH Key Name"]
+  - name: instance-state-name
+    values: ["running", "pending"]
+users:
+  - match: amzn-ami
+    user: ec2-user
+  - match: ubuntu
+    user: ubuntu
+renderers:
+  SSHConfig:
+    enable: true
+    output: ./ssh_config
+    template: templates/ssh_config.erb
+    keys:
+      Your SSH Key Name: ~/.ssh/path_to_key.pem
+      Your Other SSH Key Name: ~/.ssh/path_to_other_key.pem
+  KiTTY:
+    enable: true
+    directory: kitty
+    template: templates/kitty.erb
+    # structure takes a slash delimited set of tag names to resolve into folders. ie, "project/stages/roles" if you want to separate your profiles into directories
+    structure: "project"
+    keys:
+      Your SSH Key Name: "C:\\escaped\\path\\to\\key.ppk"
+      Your Other SSH Key Name: "C:\\escaped\\path\\to\\other key.ppk"
