@@ -21,7 +21,7 @@ renderers:
     # Set to false to turn off this renderer
     enable: true
     # The output file to write to. If you set this to ~/.ssh/config then note that it overwrites, rather than appending.
-    output: ./ssh_config
+    output: ./out/ssh_config/config
     # The output template to use
     template: templates/ssh_config.erb
     # A mapping of AWS key names to your local identity filenames. Make sure these files exist!
@@ -34,7 +34,7 @@ renderers:
     # Set to false to turn off this renderer
     enable: true
     # Output base directory
-    directory: kitty
+    directory: out/kitty
     # The session template to use
     template: templates/kitty.erb
     # Takes a slash-delimited set of tag names to resolve into folders. ie, "project/stages/roles" if you want to separate your profiles into directories
