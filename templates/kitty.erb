@@ -213,7 +213,7 @@ BackspaceIsDelete\1\
 PassiveTelnet\0\
 RFCEnviron\0\
 RemoteCommand\\
-PublicKeyFile\<%= encode @config["keys"][instance.key_name] %>\
+PublicKeyFile\<%= URI.escape @config["keys"][instance.key_name] %>\
 SSH2DES\0\
 LogHost\\
 SshProt\2\
