@@ -4,6 +4,17 @@ This is a utility which can generate an SSH config file as well as portably KiTT
 
 ## Usage
 
+### Set AWS credentials
+
+This with either use the values in `~/.aws/credentials` or you can specify via ENV:
+
+```
+export AWS_ACCESS_KEY_ID='...'
+export AWS_SECRET_ACCESS_KEY='...'
+```
+
+### Run script
+
 rename `config.example.yml` to `config.yml` and configure it to your preferences. Run `rake` and then copy the generated configurations to the appropriate locations.
 
 * move `out/ssh_config/config` to `~/.ssh/config` and chmod it 0600. If you have an AWS machine named `my machine` then you will be able to connect to it via `ssh my-machine`.
