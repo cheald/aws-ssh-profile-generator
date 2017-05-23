@@ -1,5 +1,5 @@
 Host <%= connection_name_for instance.name %>
-    HostName <%= instance.public_dns_name %>
+    HostName <%= instance.public_interface %>
     Port <%= instance.port %>
     User <%= instance.username %>
     IdentityFile <%= @config["keys"][instance.key_name] %>

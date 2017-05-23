@@ -30,5 +30,10 @@ module AwsSshProfileGenerator
     def method_missing(method, *args)
       @i.send method, *args
     end
+
+    def public_interface
+      return @i.public_dns_name if @i.public_dns_name && !@i.public_dns_name.empty?
+      return @i.public_ip_address if @i.public_ip_address && !@i.public_ip_address.empty?
+    end
   end
 end

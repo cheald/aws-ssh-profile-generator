@@ -10,20 +10,22 @@ module AwsSshProfileGenerator
 
       def finish
         if @config.key?("output")
-          FileUtils.mkdir_p File.dirname(@config["output"])
-          open(@config["output"], "w") {|fp| fp.puts @buffer }
-          puts "Write SSH config to #{@config["output"]}"
+          out = File.expand_path @config["output"]
+          FileUtils.mkdir_p File.dirname(out)
+          open(out, "w") {|fp| fp.puts @buffer }
+          puts "Write SSH config to #{out}"
         else
           puts @buffer
         end
       end
 
       def render(instance)
+        return unless instance.public_interface
         @buffer << @template.result(binding)
       end
 
       def connection_name_for(name)
-        ordinal_name_for name.downcase.strip.gsub(/[^a-z0-9_-]/, "-").squeeze("-")
+        ordinal_name_for name.downcase.strip.gsub(/[^a-z0-9_-]/, "-").squeeze("-").gsub(/\-*$/, "")
       end
     end
   end
